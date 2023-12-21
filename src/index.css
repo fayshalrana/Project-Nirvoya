@@ -26,34 +26,3 @@ html{
 }
 
 
-input[type=radio] + label::before,
-input[type=checkbox] + label::before {
-    font-weight: 600;
-    font-family: 'Font Awesome\ 5 Free';
-    content: "\f0c8";
-    font-size:1.40em;
-    color:silver;
-    margin-right:5px;
-}
-input[type=radio] + label::before {
-    content: "\f111";
-}
-ul.oricheckboxes label {
-    display:inline-block;
-}
-ul.oricheckboxes label span {
-}
-#sidebar .orimg {
-    background-image:none;
-    width:100%;
-}
-input[type=checkbox]:checked + label::before {
-    content: "\f14a";
-    color:#04819e;
-}
-
-input[type=radio]:checked + label::before {
-    content: "\f192";
-    color:#04819e;
-}
-

@@ -128,7 +128,7 @@ const SingleProduct = () => {
             <div className="py-[33px] flex gap-[16px]">
                 <span  className='text-[19px] font-[400] leading-normal Poppins text-[#333333]'>Size</span>
                 <ul className='flex gap-[15px]'>
-                  {sizes.map((elm, idx)=> <li className='px-[13px] py-1  rounded border border-slate-300 bg-white focus:border-sky-500 focus:ring-1 focus:bg-sky-500 cursor-pointer focus:text-white 
+                  {sizes.map((elm, idx)=> <li className='px-[13px] py-1  rounded border border-slate-300 bg-white focus:bg-blue-500 cursor-pointer focus:text-white 
                 text-[14px] font-[400] leading-[150%] Poppins text-[#6E6E6F]'  tabIndex="0" key={idx}>{elm}</li>)}
                 </ul>
             </div>
@@ -140,8 +140,8 @@ const SingleProduct = () => {
                   <span className='px-[15px] py-[10px] bg-white text-[16px] font-[600] leading-[202%] Poppins text-[#333333]'>{productQuantity}</span>
                   <button  onClick={handleProductIncrease}  className='px-[9px] text-[12px] text-[#ACACAC]'><FaPlus /></button>
                 </div>
-                <button className='py-[8px] px-[34px] bg-[#0198E9] text-[20px] font-[500] leading-[202%] Poppins text-white rounded-md'>Add to Cart</button>
-                <button className='py-[8px] px-[34px] border-[1.5px] border-blue-500 text-[20px] font-[500] leading-[202%] Poppins text-[#0198E9] rounded-md'>Buy Now</button>
+                <button className='py-[8px] px-[34px] bg-[#0198E9] text-[20px] font-[500] leading-normal Poppins text-white rounded-md'>Add to Cart</button>
+                <button className='py-[8px] px-[34px] border-[1.5px] border-blue-500 text-[20px] font-[500] leading-normal Poppins text-[#0198E9] rounded-md'>Buy Now</button>
               </div>
             </div>
           </div>

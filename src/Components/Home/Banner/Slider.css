@@ -1,0 +1,30 @@
+.slick-dots {
+    bottom: 25%;
+    z-index: 20;
+    display: flex !important;
+    justify-content: center;
+    gap: .5rem;
+}
+
+.slick-slider>button{
+    display: none !important;
+}
+.slick-dots li button:before {
+    font-size: 15px;
+    content: '•';
+    color: White !important;
+    opacity: 1;
+    margin: 0 10px;
+    transform: translateX(-50%);
+    left: 50%;
+}
+.slick-active button:before {
+    font-size: 0px !important;
+    margin: 0 15px;
+    width: 32px !important;
+    height: 12px;
+    content: '';
+    color: transparent;
+    background: #0198E9;
+    border-radius: 1rem;
+}

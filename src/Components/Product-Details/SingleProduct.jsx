@@ -81,11 +81,11 @@ const SingleProduct = () => {
           <div className="flex mt-[45px] gap-[12px] items-center">
             <span className='text-[20px] font-[500] leading-normal text-[#333333]'>Share</span>
             <ul className='flex gap-[14px] items-center'>
-              <li className='w-[44px] Poppins rounded-full h-[44px] cursor-pointer'><img w-full h-full src={linkedin} alt="" /></li>
-              <li className='w-[44px] Poppins rounded-full h-[44px] cursor-pointer'><img w-full h-full src={twitter} alt="" /></li>
-              <li className='w-[44px] Poppins rounded-full h-[44px] cursor-pointer'><img w-full h-full src={facebook} alt="" /></li>
-              <li className='w-[44px] Poppins rounded-full h-[44px] cursor-pointer'><img w-full h-full src={whatsApp} alt="" /></li>
-              <li className='w-[44px] Poppins rounded-full h-[44px] cursor-pointer'><img w-full h-full src={shareLink} alt="" /></li>
+              <li className='w-[44px] Poppins rounded-full h-[44px] cursor-pointer'><img className='w-full h-full' src={linkedin} alt="" /></li>
+              <li className='w-[44px] Poppins rounded-full h-[44px] cursor-pointer'><img className='w-full h-full' src={twitter} alt="" /></li>
+              <li className='w-[44px] Poppins rounded-full h-[44px] cursor-pointer'><img className='w-full h-full' src={facebook} alt="" /></li>
+              <li className='w-[44px] Poppins rounded-full h-[44px] cursor-pointer'><img className='w-full h-full' src={whatsApp} alt="" /></li>
+              <li className='w-[44px] Poppins rounded-full h-[44px] cursor-pointer'><img className='w-full h-full' src={shareLink} alt="" /></li>
             </ul>
           </div>
           </div>

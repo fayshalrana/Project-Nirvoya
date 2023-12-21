@@ -6,6 +6,7 @@ import { FaRegHeart } from "react-icons/fa6";
 import { BsHandbag } from "react-icons/bs";
 import Menus from './menus';
 import { productProvider } from '../../../../ProductsContext/ProductsContext';
+import { Link } from 'react-router-dom';
 
 
 
@@ -16,7 +17,9 @@ const Header = () => {
     <div className='border-b-[1px]'>
       <div className="container flex  py-[33px]  gap-[59px] items-center justify-between">
         <div className="logo w-[120px]">
+          <Link to='/'>
           <img src={logo} alt="" />
+          </Link>
         </div>
         <div className="w-[720px] flex h-[40px] justify-between rounded-md overflow-hidden">
            <input type="text" className='w-[700px] px-4 py-3 focus-visible:none focus:outline-none bg-[#F6F6F6] border-[#F1F1F1] border' placeholder="i'm searching for..."/>

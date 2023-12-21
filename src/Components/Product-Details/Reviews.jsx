@@ -54,9 +54,9 @@ const Reviews = ({ product }) => {
             <h2 className='text-[24px] font-[500] leading-[120%] Poppins text-[#333] pb-[20px] pt-[35px]'>Reviews ({product.reviews.length})</h2>
             <div className="pt-[22px] border-t flex flex-col gap-[33px]">
                 {
-                    product.reviews.map((elm, idx) => (
-                        <>
-                            <div className="flex gap-[16px] flex-col">
+                    product.reviews.map((elm, idx) => 
+                          <div key={idx}>
+                          <div className="flex gap-[16px] flex-col">
                                 <div className="flex gap-[16px]">
                                     <div className="">
                                         <img src={user1} alt="" />
@@ -68,8 +68,7 @@ const Reviews = ({ product }) => {
                                 </div>
                             <p className='text-[18px] font-[400] leading-normal Poppins text-[#383838]'>{elm.comment}</p>
                             </div>
-                        </>
-                    ))
+                          </div>)
                 }
             </div>
             <div id='commentForm'>

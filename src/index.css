@@ -11,9 +11,7 @@
 body{
     background: #FBFBFB;
 }
-html{
-    scroll-behavior: smooth;
-}
+
 .Montserrat{
     font-family: 'Montserrat', sans-serif
 }

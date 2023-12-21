@@ -11,6 +11,11 @@ const Shop = () => {
   const focusedLiRef = useRef(null);
   const [checkboxStates, setCheckboxStates] = useState([false, false, false, false, false]);
 
+  const productsCopy = [...products];
+ 
+  productsCopy.forEach(function (elm) {
+    elm.discount = null;
+  });
   const handleCheckboxChange = (index) => {
     const newCheckboxStates = [...checkboxStates];
     newCheckboxStates.fill(false);
@@ -22,16 +27,12 @@ const Shop = () => {
     focusedLiRef.current.focus();
   }, []);
 
-  const productsCopy = [...products];
   const [rang, setRang] = useState(1000)
   const handleRang = (e) => {
     const val = e.target.value
     setRang(val)
   }
 
-  productsCopy.forEach(function (elm) {
-    elm.discount = null;
-  });
   return (
     <div className='container py-[43px] grid gap-[50px] grid-cols-4'>
       <div>
@@ -67,13 +68,13 @@ const Shop = () => {
             <div className="flex gap-[16px] items-center">
               <input id="link-checkbox" type="checkbox"
                 checked={checkboxStates[0]}
-                onChange={() => handleCheckboxChange(0)} value="" className="w-[24px] h-[24px] rounded text-[24px] text-blue-600 cursor-pointer bg-gray-100 focus:ring-transparent border-[2px] border-gray-500" />
+                onChange={() => handleCheckboxChange(0)} className="w-[24px] h-[24px] rounded text-[24px] text-blue-600 cursor-pointer bg-gray-100 focus:ring-transparent border-[2px] border-gray-500" />
               <span> <IoMdStar className='text-[30px] text-[#FFB340]' /></span>
             </div>
             <div className="flex gap-[16px] items-center">
               <input id="link-checkbox" type="checkbox"
                 checked={checkboxStates[1]}
-                onChange={() => handleCheckboxChange(1)} value="" className="w-[24px] h-[24px] rounded text-[24px] text-blue-600 cursor-pointer bg-gray-100 focus:ring-transparent border-[2px] border-gray-500" />
+                onChange={() => handleCheckboxChange(1)} className="w-[24px] h-[24px] rounded text-[24px] text-blue-600 cursor-pointer bg-gray-100 focus:ring-transparent border-[2px] border-gray-500" />
               <span className='flex gap-[8px]'>
                 <IoMdStar className='text-[30px] text-[#FFB340]' />
                 <IoMdStar className='text-[30px] text-[#FFB340]' />
@@ -82,7 +83,7 @@ const Shop = () => {
             <div className="flex gap-[16px] items-center">
               <input id="link-checkbox" type="checkbox"
                 checked={checkboxStates[2]}
-                onChange={() => handleCheckboxChange(2)} value="" className="w-[24px] h-[24px] rounded text-[24px] text-blue-600 cursor-pointer bg-gray-100 focus:ring-transparent border-[2px] border-gray-500" />
+                onChange={() => handleCheckboxChange(2)} className="w-[24px] h-[24px] rounded text-[24px] text-blue-600 cursor-pointer bg-gray-100 focus:ring-transparent border-[2px] border-gray-500" />
               <span className='flex gap-[8px]'>
                 <IoMdStar className='text-[30px] text-[#FFB340]' />
                 <IoMdStar className='text-[30px] text-[#FFB340]' />
@@ -92,7 +93,7 @@ const Shop = () => {
             <div className="flex gap-[16px] items-center">
               <input id="link-checkbox" type="checkbox"
                 checked={checkboxStates[3]}
-                onChange={() => handleCheckboxChange(3)} value="" className="w-[24px] h-[24px] rounded text-[24px] text-blue-600 cursor-pointer bg-gray-100 focus:ring-transparent border-[2px] border-gray-500" />
+                onChange={() => handleCheckboxChange(3)} className="w-[24px] h-[24px] rounded text-[24px] text-blue-600 cursor-pointer bg-gray-100 focus:ring-transparent border-[2px] border-gray-500" />
               <span className='flex gap-[8px]'>
                 <IoMdStar className='text-[30px] text-[#FFB340]' />
                 <IoMdStar className='text-[30px] text-[#FFB340]' />
@@ -103,7 +104,7 @@ const Shop = () => {
             <div className="flex gap-[16px] items-center">
               <input id="checkbox5" type="checkbox"
                 checked={checkboxStates[4]}
-                onChange={() => handleCheckboxChange(4)} value="" className="w-[24px] h-[24px] rounded text-[24px] text-blue-600 cursor-pointer bg-gray-100 focus:ring-transparent border-[2px] border-gray-500" />
+                onChange={() => handleCheckboxChange(4)} className="w-[24px] h-[24px] rounded text-[24px] text-blue-600 cursor-pointer bg-gray-100 focus:ring-transparent border-[2px] border-gray-500" />
               <span htmlFor='checkbox5' className='flex gap-[8px]'>
                 <IoMdStar className='text-[30px] text-[#FFB340]' />
                 <IoMdStar className='text-[30px] text-[#FFB340]' />

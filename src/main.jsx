@@ -11,6 +11,7 @@ import Home from './Components/Home/Home.jsx';
 import Shop from './Components/Shop/Shop.jsx';
 import ProductsContext from '../ProductsContext/ProductsContext.jsx';
 import SingleProduct from './Components/Product-Details/SingleProduct.jsx';
+import Cart from './Components/Cart/Cart.jsx';
 
 const router = createBrowserRouter([
   {
@@ -24,6 +25,10 @@ const router = createBrowserRouter([
       {
         path: "/shop",
         element: <Shop></Shop>
+      },
+      {
+        path: "/cart",
+        element: <Cart></Cart>
       },
       {
         path: "/product/:id",

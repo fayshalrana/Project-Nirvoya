@@ -21,9 +21,9 @@ const Footer = () => {
   return (
    <>
     <div className='border-b bg-white py-[50px]'>
-      <div className="container grid grid-cols-3 gap-[100px]">
+      <div className="containerMb flex gap-[50px] flex-col-reverse lg:container lg:grid lg:grid-cols-3 lg:gap-[100px]">
         <div className="">
-          <div className="">
+          <div className="hidden lg:block">
             <img className='drop-shadow-xl' src={logo} alt="" />
           </div>
           <p className='pt-[35px] pb-[26px] text-[18px] font-[400] text-[#333333CC] Lato'>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p>
@@ -86,11 +86,11 @@ const Footer = () => {
 
     </div>
     <div className="py-[15px]">
-      <div className="container flex justify-between">
+      <div className="containerMb lg:container flex justify-center lg:justify-between">
         <div className="">
           <p className='text-[16px] font-[400] leading-normal text-[#757575] Poppins'>Projectnirvoya -   © 2021 All Rights Reserved</p>
         </div>
-        <div className="flex gap-5">
+        <div className="hidden lg:flex gap-5">
           <span className='text-[18px] font-[500] leading-normal Poppins text-[#0198E9CC]'>Pay With</span>
           <div className="flex gap-3 items-center ">
             <span className=''>

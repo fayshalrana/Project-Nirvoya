@@ -25,7 +25,7 @@ const Featured = () => {
     }
 
     return (
-        <div className='container py-[6px]'>
+        <div className='containerMb lg:container py-[6px]'>
             <div className="flex justify-between items-center">
                 <h2 className='text-[26px] font-[500] text-black pb-[32px] leading-[63.984px]'>Featured Product</h2>
                 <div className="flex items-center gap-[10px]">
@@ -34,7 +34,7 @@ const Featured = () => {
                 </div>
             </div>
 
-            <div className="grid grid-cols-4 gap-[25px]">
+            <div className="grid grid-cols-2 gap-[15px] lg:grid-cols-4  lg:gap-[25px]">
                 {
                     productsCopy.slice(0, visible).map(product => <ProductItem key={product.id} product={product}></ProductItem>)
                 }

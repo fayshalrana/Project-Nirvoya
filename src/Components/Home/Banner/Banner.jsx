@@ -5,11 +5,11 @@ import bannerImg3 from '../../../../public/images/banner3.png'
 
 const Banner = () => {
     return (
-        <div className='container grid grid-cols-3 pt-5 gap-5'>
+        <div className='containerMb lg:container lg:grid lg:grid-cols-3 pt-5 lg:gap-5'>
             <div className="col-span-2">
                 <Slider></Slider>
             </div>
-            <div className="flex gap-5 flex-col h-full max-h-[518px]">
+            <div className="lg:flex gap-5 flex-col h-full max-h-[350px] lg:max-h-[518px] hidden">
                 <div className="relative rounded-[10px] overflow-hidden">
                     <img className='w-full h-full object-fill' src={bannerImg2} alt="" />
                     <div className="absolute left-0 top-0 w-full h-full flex justify-center items-end">

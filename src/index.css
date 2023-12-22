@@ -8,6 +8,10 @@
     width: 1400px;
     margin: 0 auto;
 }
+.containerMb{
+    width: 370px;
+    margin: 0 auto;
+}
 body{
     background: #FBFBFB;
 }

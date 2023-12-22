@@ -49,12 +49,12 @@ var settings = {
        slideItem.map(item =>(
         <div key={item.id} className='relative'>
             <img className='w-full h-full object-fill z-[5]' src={item.img} alt="" />
-            <div className=" w-full h-full absolute z-[10] left-[0] top-[0] bg-back/90 flex flex-col justify-center px-[60px]">
+            <div className=" w-full h-full absolute z-[10] left-[0] top-[0] bg-back/90 flex flex-col justify-center px-[20px] lg:px-[60px]">
                <div className="w-[60%]">
-               <h1 className='text-[45px] text-[#0970CD] font-[700] leading-none Montserrat'>{item.title}</h1>
-                <p className='py-[27px] text-[20px] font-[400] text-[#646464]'>{item.subTitle}</p>
+               <h1 className='text-[20px] lg:text-[45px] text-[#0970CD] font-[700] leading-none Montserrat'>{item.title}</h1>
+                <p className='py-[12px] lg:py-[27px] text-[12px] lg:text-[20px] font-[400] text-[#646464]'>{item.subTitle}</p>
                <div className="">
-               <button className='py-[10px] px-[25px] rounded-[5px] text-white text-[16px] font-[600] bg-blue-700'>Shop Now</button>
+               <button className='py-[5px] lg:py-[10px] px-[10px] before:hidden lg:px-[25px] rounded-[5px] text-white text-[12px] lg:text-[16px] font-[600] bg-blue-700'>Shop Now</button>
                </div>
                </div>
             </div>

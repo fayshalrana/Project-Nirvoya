@@ -7,8 +7,8 @@ import vector3 from '../../../../public/images/Vector3.png'
 const Benifite = () => {
   return (
     <div className='border-b bg-white'>
-      <div className="container py-[50px] grid grid-cols-4">
-        <div className="flex justify-center items-center gap-[18px]">
+      <div className="containerMb lg:container py-[50px] gap-3 grid-cols-1 grid lg:grid-cols-4">
+        <div className="flex justify-start lg:justify-center items-center gap-[18px]">
             <div className="">
                 <img src={vector} alt="" />
             </div>
@@ -17,7 +17,7 @@ const Benifite = () => {
                 <p className='text-[16px] font-[400] text-[#757575] Poppins leading-normal'>Order via Campaign</p>
             </div>
         </div>
-        <div className="flex justify-center items-center gap-[18px]">
+        <div className="flex justify-start lg:justify-center items-center gap-[18px]">
             <div className="">
                 <img src={vector1} alt="" />
             </div>
@@ -26,7 +26,7 @@ const Benifite = () => {
                 <p className='text-[16px] font-[400] text-[#757575] Poppins leading-normal'>Within 7 days returns</p>
             </div>
         </div>
-        <div className="flex justify-center items-center gap-[18px]">
+        <div className="flex justify-start lg:justify-center items-center gap-[18px]">
             <div className="">
                 <img src={vector2} alt="" />
             </div>
@@ -35,7 +35,7 @@ const Benifite = () => {
                 <p className='text-[16px] font-[400] text-[#757575] Poppins leading-normal'>Order via Campaign</p>
             </div>
         </div>
-        <div className="flex justify-center items-center gap-[18px]">
+        <div className="flex justify-start lg:justify-center items-center gap-[18px]">
             <div className="">
                 <img src={vector3} alt="" />
             </div>

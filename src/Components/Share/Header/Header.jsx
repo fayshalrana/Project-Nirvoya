@@ -6,11 +6,12 @@ import { FaRegHeart } from "react-icons/fa6";
 import { BsHandbag } from "react-icons/bs";
 import Menus from './menus';
 import { productProvider } from '../../../../ProductsContext/ProductsContext';
-import { Link } from 'react-router-dom';
+import { Link, useNavigate } from 'react-router-dom';
 import { motion, useScroll, useMotionValueEvent } from "framer-motion"
 
 
 const Header = () => {
+  const navigate = useNavigate()
   const {scrollY} = useScroll()
   const {menus} = useContext(productProvider)
   const [hidden, setHidden] = useState(false)
@@ -23,7 +24,9 @@ const Header = () => {
       setHidden(false)
     }
   })
-
+const handleCartPage = () =>{
+  navigate('/cart')
+}
 
   return (
     <>
@@ -35,26 +38,40 @@ const Header = () => {
     animate={hidden? "hidden":"visible"}
     transition={{duration:.35, ease: "easeInOut"}}
     className='border-b-[1px] w-full z-50 sticky top-0 bg-[#FBFBFB]'>
-      <div className="container flex  py-[33px]  gap-[59px] items-center justify-between">
-        <div className="logo w-[120px]">
+      <div className="containerMb lg:container  flex py-[17px] lg:py-[33px]  lg:gap-[59px] items-center justify-between">
+        <div className="logo w-[100px] lg:w-[120px]">
           <Link to='/'>
-          <img src={logo} alt="" />
+          <img className='w-full' src={logo} alt="" />
           </Link>
         </div>
-        <div className="w-[720px] flex h-[40px] justify-between rounded-md overflow-hidden">
+        <div className="w-[720px] hidden lg:flex h-[40px] justify-between rounded-md overflow-hidden">
            <input type="text" className='w-[700px] px-4 py-3 focus-visible:none focus:outline-none bg-[#F6F6F6] border-[#F1F1F1] border' placeholder="i'm searching for..."/>
            <button className='w-[10%] py-5 bg-blue-600 mr-auto flex justify-center items-center'>
            <IoSearchOutline  className='text-2xl text-white bg-transparent'/>
            </button>
         </div>
+      
         <div className="">
-          <div className="flex gap-[40px]">
-            <button className='flex items-center gap-1 text-[16px] font-[400] text-[rgba(77, 77, 77, 1)]'><FaRegUser className='w-[24px]'/>Login</button>
-            <button className='flex items-center gap-1 text-[16px] font-[400] text-[rgba(77, 77, 77, 1)]'> <FaRegHeart   className='w-[24px]'/> Wishlist</button>
-            <button className='flex items-center gap-1 text-[16px] font-[400] text-[rgba(77, 77, 77, 1)]'><BsHandbag   className='w-[24px]'/> MY Cart</button>
+          <div className="flex gap-[15px] lg:gap-[30px]">
+            <button className='flex items-center gap-1 text-[20px] lg:text-[16px] font-[400] text-[rgba(77, 77, 77, 1)]'><FaRegUser className='w-[30px] lg:w-[24px]'/><span className='hidden md:block'>Login</span></button>
+            <button className='flex items-center gap-1 text-[20px] lg:text-[16px] font-[400] text-[rgba(77, 77, 77, 1)]'> <FaRegHeart   className='w-[24px]'/> <span className='hidden md:block'>Wishlist</span></button>
+           <div className="flex items-center gap-[15px]">
+           <button onClick={handleCartPage} className='flex items-center gap-1 text-[20px] lg:text-[16px] font-[400] text-[rgba(77, 77, 77, 1)]'><BsHandbag   className='w-[24px]'/> <span className='hidden md:block'>MY Cart</span></button>
+            <span className='w-[23px] h-[23px] flex justify-center items-center text-[12px] rounded-full bg-red-500 text-white font-[500] right-[10px] top-[13px]  absolute lg:relative'>2</span>
+           </div>
+            
           </div>
         </div>
+      
       </div>
+      <div className="containerMb">
+       <div className="w-[full] flex mb-4 lg:hidden h-[40px] justify-between rounded-md overflow-hidden">
+           <input type="text" className='px-4 w-[90%] py-3 focus-visible:none focus:outline-none bg-[#F6F6F6] border-[#F1F1F1] border' placeholder="i'm searching for..."/>
+           <button className='w-[10%] py-5 bg-blue-600 mr-auto flex justify-center items-center'>
+           <IoSearchOutline  className='text-2xl text-white bg-transparent'/>
+           </button>
+        </div>
+       </div>
       <div className="">
         <Menus menus={menus}></Menus>
       </div>

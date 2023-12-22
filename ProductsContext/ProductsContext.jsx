@@ -11,7 +11,7 @@ const [error, setError] = useState(null);
 
 const fetchCategoryData = async () => {
   try {
-    const response = await fetch('http://localhost:3000/category');
+    const response = await fetch('https://project-nirvoya-server.vercel.app/category');
 
     if (!response.ok) {
       throw new Error(`HTTP error! Status: ${response.status}`);
@@ -28,7 +28,7 @@ const fetchCategoryData = async () => {
 };
 const fetchData = async () => {
   try {
-    const response = await fetch('http://localhost:3000/products');
+    const response = await fetch('https://project-nirvoya-server.vercel.app/products');
 
     if (!response.ok) {
       throw new Error(`HTTP error! Status: ${response.status}`);
@@ -45,7 +45,7 @@ const fetchData = async () => {
 };
 const fetchMenuData = async () => {
   try {
-    const response = await fetch('http://localhost:3000/menus');
+    const response = await fetch('https://project-nirvoya-server.vercel.app/menus');
 
     if (!response.ok) {
       throw new Error(`HTTP error! Status: ${response.status}`);

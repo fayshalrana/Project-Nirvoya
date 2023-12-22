@@ -28,12 +28,12 @@ const router = createBrowserRouter([
       {
         path: "/product/:id",
         element: <SingleProduct></SingleProduct>,
-        loader:({params}) => fetch(`http://localhost:3000/product/${params.id}`)
+        loader:({params}) => fetch(`https://project-nirvoya-server.vercel.app/product/${params.id}`)
       },
       {
         path: "/shop/:name",
         element: <Shop></Shop>,
-        loader:({params}) => fetch(`http://localhost:3000/shop/${params.name}`)
+        loader:({params}) => fetch(`https://project-nirvoya-server.vercel.app/shop/${params.name}`)
       }
     ]
   },

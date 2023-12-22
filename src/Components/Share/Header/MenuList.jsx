@@ -16,7 +16,7 @@ const MenuList = ({menu}) => {
     <>
       <li onClick={()=>handleMenusName(menu.name)} className='group text-[16px] font-[500] text-[rgba(51, 51, 51, 0.85)] hover:text-[#0198E9] border-b-2 duration-300 border-transparent hover:border-b-2 hover:border-[#0198E9] cursor-pointer'>{menu.name}
    { hideMegaMenus &&
-    <div className="invisible z-[999] group-hover:visible group-hover:translate-y-0 w-full translate-y-3  duration-300 bg-white py-[30px] px-[70px] grid grid-cols-5 absolute left-0 top-7">
+    <div className="invisible z-[999] group-hover:visible group-hover:translate-y-0 w-full translate-y-3  duration-300 bg-white py-[30px] px-[70px] grid grid-cols-5 absolute left-0 top-6">
     {
         menu.submenus.slice(0, 4).map((submenu, idx)  => (
             <div className=" bg-transparent" key={idx}>

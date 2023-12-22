@@ -1,4 +1,4 @@
-import React, { useContext } from 'react'
+import React, { useContext, useState } from 'react'
 import logo from "../../../../public/images/logo.png"
 import { IoSearchOutline } from "react-icons/io5";
 import { FaRegUser } from "react-icons/fa6";
@@ -7,14 +7,34 @@ import { BsHandbag } from "react-icons/bs";
 import Menus from './menus';
 import { productProvider } from '../../../../ProductsContext/ProductsContext';
 import { Link } from 'react-router-dom';
-
+import { motion, useScroll, useMotionValueEvent } from "framer-motion"
 
 
 const Header = () => {
+  const {scrollY} = useScroll()
   const {menus} = useContext(productProvider)
+  const [hidden, setHidden] = useState(false)
+  useMotionValueEvent(scrollY, "change", (latest)=>{
+    const previous=  scrollY.getPrevious();
+
+    if(latest > previous){
+      setHidden(true);
+    }else{
+      setHidden(false)
+    }
+  })
+
+
   return (
     <>
-    <div className='border-b-[1px]'>
+    <motion.div
+    variants={{
+      visible: {x:0},
+      hidden: {y:"-100%"}
+    }}
+    animate={hidden? "hidden":"visible"}
+    transition={{duration:.35, ease: "easeInOut"}}
+    className='border-b-[1px] w-full z-50 sticky top-0 bg-[#FBFBFB]'>
       <div className="container flex  py-[33px]  gap-[59px] items-center justify-between">
         <div className="logo w-[120px]">
           <Link to='/'>
@@ -35,10 +55,10 @@ const Header = () => {
           </div>
         </div>
       </div>
-      <div className="p">
+      <div className="">
         <Menus menus={menus}></Menus>
       </div>
-    </div>
+    </motion.div>
     </>
   )
 }

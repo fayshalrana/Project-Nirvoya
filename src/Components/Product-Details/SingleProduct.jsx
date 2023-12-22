@@ -22,8 +22,9 @@ import Reviews from './Reviews';
 const SingleProduct = () => {
   const product = useLoaderData();
   const { productImage, price, productName,category, rating, discount,description, SKU, features, sizes, stock, soldQuantity, reviews } = product;
-  const [imgIdx, setImgIdx] =useState(0)
+  const [imgIdx, setImgIdx] = useState(0)
 
+  console.log(productImage);
   const [fave, setFave] = useState(false)
   const discountPrice = price +( price * discount / 100) ;
 

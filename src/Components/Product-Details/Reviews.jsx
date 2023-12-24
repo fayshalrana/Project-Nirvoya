@@ -48,7 +48,7 @@ const Reviews = ({ product }) => {
                     </div>
                 </div>
                 <div className="">
-                    <a href='#commentForm' className='py-[10px] px-[50px] rounded-[3px] text-white bg-[#0198E9] shadow-[0px_2px_8px_0px_rgba(0, 0, 0, 0.12)] text-[14px] font-[500] leading-normal Poppins'>Write a Review</a>
+                    <a href='#commentForm' className='py-[10px] px-[50px] rounded-[3px] text-white bg-[#0198E9] shadow-[0px_2px_8px_0px_rgba(0, 0, 0, 0.12)] text-[14px] font-[500] leading-normal Poppins hover:bg-red-600 cursor-pointer transform translate duration-500'>Write a Review</a>
                 </div>
             </div>
             <h2 className='text-[24px] font-[500] leading-[120%] Poppins text-[#333] pb-[20px] pt-[35px]'>Reviews ({product.reviews.length})</h2>
@@ -89,7 +89,7 @@ const Reviews = ({ product }) => {
               <textarea id="message" rows="6" className="block p-2.5 w-full text-sm text-gray-900 bg-gray-50 rounded-lg shadow-sm border border-gray-300 focus:ring-primary-500 focus:border-primary-500 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-primary-500 dark:focus:border-primary-500 resize-none" placeholder="Leave a comment..." ></textarea>
           </div>
           <span className='flex gap-[16px] items-center text-[18px] font-[500] leading-normal Poppins text-[#383838]'>Rating<Rating style={{ maxWidth: 120 }} value={4} /></span>
-          <button type="submit" className="py-3 px-5 text-sm font-medium text-center text-white rounded-lg bg-[#0198E9] sm:w-fit hover:bg-primary-800 focus:ring-4 focus:outline-none focus:ring-primary-300 dark:bg-primary-600 dark:hover:bg-primary-700 dark:focus:ring-primary-800">Send message</button>
+          <button type="submit" className="py-3 px-5 text-sm font-medium text-center text-white rounded-lg bg-[#0198E9] sm:w-fit hover:bg-primary-800 focus:ring-4 focus:outline-none focus:ring-primary-300 dark:bg-primary-600 dark:hover:bg-primary-700 dark:focus:ring-primary-800  hover:shadow-lg cursor-pointer transform translate duration-500">Send message</button>
       </form>
                 </div>
             </div>

@@ -12,7 +12,7 @@ const Shop = () => {
   const [checkboxStates, setCheckboxStates] = useState([false, false, false, false, false]);
 
   const productsCopy = [...products];
- 
+
   productsCopy.forEach(function (elm) {
     elm.discount = null;
   });
@@ -35,83 +35,97 @@ const Shop = () => {
 
   return (
     <div className='container py-[43px] grid gap-[50px] grid-cols-4'>
-      <div>
-        <div className="bg-white py-[20px] w-[300px] px-[20px] relative border-b">
-          <h2 className='text-[18px] font-[500] leading-normal Poppins text-[#3D3D3F] pb-[10px]'>Related Categories</h2>
-          <ul className='pl-[20px] text-[16px] font-[400] leading-normal Poppins text-[#757575] pb-[10px]'>
-            <li className='list-disc'>{categoryMenus.name}</li>
-            <div className="">
-              <ul className='pl-[10px] flex flex-col gap-2'>
-                {categoryMenus.submenus.map((submenu, idx) => <li className='hover:text-[#0198E9] cursor-pointer' key={idx}>{submenu.name}</li>)}
+      <div className='sticky top-0'>
+        <div>
+          <div className="bg-white py-[20px] w-[300px] px-[20px] relative border-b">
+            {categoryMenus ?
+              <>
+                <h2 className='text-[18px] font-[500] leading-normal Poppins text-[#3D3D3F] pb-[10px]'>Related Categories</h2>
+                <ul className='pl-[20px] text-[16px] font-[400] leading-normal Poppins text-[#757575] pb-[10px]'>
+                  <li className='list-disc'>{categoryMenus?.name}</li>
+                  <div className="">
+                    <ul className='pl-[10px] flex flex-col gap-2'>
+                      {categoryMenus.submenus?.map((submenu, idx) => <li className='hover:text-[#0198E9] cursor-pointer' key={idx}>{submenu.name}</li>)}
+                    </ul>
+                  </div>
+                </ul>
+              </> : 
+              <>
+              <h2 className='text-[18px] font-[500] leading-normal Poppins text-[#3D3D3F] pb-[10px]'>All Categories</h2>
+              <ul className='pl-[20px] text-[16px] font-[400] leading-normal Poppins text-[#757575] pb-[10px]'>
+               {
+                productsCopy.map(elm=> <li className='list-disc'>{elm.category}</li>)
+               }
               </ul>
-            </div>
-          </ul>
-        </div>
-        <div className="bg-white py-[20px] w-[300px] px-[20px] relative border-b">
-          <div className="flex justify-between items-center">
-            <h3 className='text-[18px] font-[500] leading-normal Poppins text-[#3D3D3F] pb-[10px]'>Filter by Price</h3>
-            <IoIosArrowDown />
+            </>
+            }
           </div>
-          <div className="">
-            <input onChange={handleRang} className='accent-blue-500 w-full py-[20px] block' value={rang} type="range" id="cowbell" name="price" min={1000} max={100000} step="1000" />
+          <div className="bg-white py-[20px] w-[300px] px-[20px] relative border-b">
+            <div className="flex justify-between items-center">
+              <h3 className='text-[18px] font-[500] leading-normal Poppins text-[#3D3D3F] pb-[10px]'>Filter by Price</h3>
+              <IoIosArrowDown />
+            </div>
             <div className="">
-              <span className='text-[18px] font-[500] leading-normal Poppins text-[#383838]'><span className='text-[18px] font-[500] leading-normal Poppins text-[#A7A7A7]'>Price:</span><span className='text-[18px] font-[500] leading-normal Poppins text-[#383838]'> ৳1000 - ৳{rang} </span></span>
+              <input onChange={handleRang} className='accent-blue-500 border-none outline-none w-full py-[20px] block' defaultValue={5000} value={rang} type="range" id="cowbell" name="price" min={1000} max={100000} step="1000" />
+              <div className="">
+                <span className='text-[18px] font-[500] leading-normal Poppins text-[#383838]'><span className='text-[18px] font-[500] leading-normal Poppins text-[#A7A7A7]'>Price:</span><span className='text-[18px] font-[500] leading-normal Poppins text-[#383838]'> ৳1000 - ৳{rang} </span></span>
+              </div>
             </div>
           </div>
-        </div>
-        <div className="bg-white py-[20px] w-[300px] px-[20px] relative">
-          <div className="flex justify-between items-center">
-            <h3 className='text-[18px] font-[500] leading-normal Poppins text-[#3D3D3F] pb-[10px]'>Filter by Rating</h3>
-            <IoIosArrowDown />
-          </div>
-          <div className="flex flex-col gap-[16px]">
-            <div className="flex gap-[16px] items-center">
-              <input id="link-checkbox" type="checkbox"
-                checked={checkboxStates[0]}
-                onChange={() => handleCheckboxChange(0)} className="w-[24px] h-[24px] rounded text-[24px] text-blue-600 cursor-pointer bg-gray-100 focus:ring-transparent border-[2px] border-gray-500" />
-              <span> <IoMdStar className='text-[30px] text-[#FFB340]' /></span>
+          <div className="bg-white py-[20px] w-[300px] px-[20px] relative">
+            <div className="flex justify-between items-center">
+              <h3 className='text-[18px] font-[500] leading-normal Poppins text-[#3D3D3F] pb-[10px]'>Filter by Rating</h3>
+              <IoIosArrowDown />
             </div>
-            <div className="flex gap-[16px] items-center">
-              <input id="link-checkbox" type="checkbox"
-                checked={checkboxStates[1]}
-                onChange={() => handleCheckboxChange(1)} className="w-[24px] h-[24px] rounded text-[24px] text-blue-600 cursor-pointer bg-gray-100 focus:ring-transparent border-[2px] border-gray-500" />
-              <span className='flex gap-[8px]'>
-                <IoMdStar className='text-[30px] text-[#FFB340]' />
-                <IoMdStar className='text-[30px] text-[#FFB340]' />
-              </span>
-            </div>
-            <div className="flex gap-[16px] items-center">
-              <input id="link-checkbox" type="checkbox"
-                checked={checkboxStates[2]}
-                onChange={() => handleCheckboxChange(2)} className="w-[24px] h-[24px] rounded text-[24px] text-blue-600 cursor-pointer bg-gray-100 focus:ring-transparent border-[2px] border-gray-500" />
-              <span className='flex gap-[8px]'>
-                <IoMdStar className='text-[30px] text-[#FFB340]' />
-                <IoMdStar className='text-[30px] text-[#FFB340]' />
-                <IoMdStar className='text-[30px] text-[#FFB340]' />
-              </span>
-            </div>
-            <div className="flex gap-[16px] items-center">
-              <input id="link-checkbox" type="checkbox"
-                checked={checkboxStates[3]}
-                onChange={() => handleCheckboxChange(3)} className="w-[24px] h-[24px] rounded text-[24px] text-blue-600 cursor-pointer bg-gray-100 focus:ring-transparent border-[2px] border-gray-500" />
-              <span className='flex gap-[8px]'>
-                <IoMdStar className='text-[30px] text-[#FFB340]' />
-                <IoMdStar className='text-[30px] text-[#FFB340]' />
-                <IoMdStar className='text-[30px] text-[#FFB340]' />
-                <IoMdStar className='text-[30px] text-[#FFB340]' />
-              </span>
-            </div>
-            <div className="flex gap-[16px] items-center">
-              <input id="checkbox5" type="checkbox"
-                checked={checkboxStates[4]}
-                onChange={() => handleCheckboxChange(4)} className="w-[24px] h-[24px] rounded text-[24px] text-blue-600 cursor-pointer bg-gray-100 focus:ring-transparent border-[2px] border-gray-500" />
-              <span htmlFor='checkbox5' className='flex gap-[8px]'>
-                <IoMdStar className='text-[30px] text-[#FFB340]' />
-                <IoMdStar className='text-[30px] text-[#FFB340]' />
-                <IoMdStar className='text-[30px] text-[#FFB340]' />
-                <IoMdStar className='text-[30px] text-[#FFB340]' />
-                <IoMdStar className='text-[30px] text-[#FFB340]' />
-              </span>
+            <div className="flex flex-col gap-[16px]">
+              <div className="flex gap-[16px] items-center">
+                <input id="link-checkbox" type="checkbox"
+                  checked={checkboxStates[0]}
+                  onChange={() => handleCheckboxChange(0)} className="w-[24px] h-[24px] rounded text-[24px] text-blue-600 cursor-pointer bg-gray-100 focus:ring-transparent border-[2px] border-gray-500" />
+                <span> <IoMdStar className='text-[30px] text-[#FFB340]' /></span>
+              </div>
+              <div className="flex gap-[16px] items-center">
+                <input id="link-checkbox" type="checkbox"
+                  checked={checkboxStates[1]}
+                  onChange={() => handleCheckboxChange(1)} className="w-[24px] h-[24px] rounded text-[24px] text-blue-600 cursor-pointer bg-gray-100 focus:ring-transparent border-[2px] border-gray-500" />
+                <span className='flex gap-[8px]'>
+                  <IoMdStar className='text-[30px] text-[#FFB340]' />
+                  <IoMdStar className='text-[30px] text-[#FFB340]' />
+                </span>
+              </div>
+              <div className="flex gap-[16px] items-center">
+                <input id="link-checkbox" type="checkbox"
+                  checked={checkboxStates[2]}
+                  onChange={() => handleCheckboxChange(2)} className="w-[24px] h-[24px] rounded text-[24px] text-blue-600 cursor-pointer bg-gray-100 focus:ring-transparent border-[2px] border-gray-500" />
+                <span className='flex gap-[8px]'>
+                  <IoMdStar className='text-[30px] text-[#FFB340]' />
+                  <IoMdStar className='text-[30px] text-[#FFB340]' />
+                  <IoMdStar className='text-[30px] text-[#FFB340]' />
+                </span>
+              </div>
+              <div className="flex gap-[16px] items-center">
+                <input id="link-checkbox" type="checkbox"
+                  checked={checkboxStates[3]}
+                  onChange={() => handleCheckboxChange(3)} className="w-[24px] h-[24px] rounded text-[24px] text-blue-600 cursor-pointer bg-gray-100 focus:ring-transparent border-[2px] border-gray-500" />
+                <span className='flex gap-[8px]'>
+                  <IoMdStar className='text-[30px] text-[#FFB340]' />
+                  <IoMdStar className='text-[30px] text-[#FFB340]' />
+                  <IoMdStar className='text-[30px] text-[#FFB340]' />
+                  <IoMdStar className='text-[30px] text-[#FFB340]' />
+                </span>
+              </div>
+              <div className="flex gap-[16px] items-center">
+                <input id="checkbox5" type="checkbox"
+                  checked={checkboxStates[4]}
+                  onChange={() => handleCheckboxChange(4)} className="w-[24px] h-[24px] rounded text-[24px] text-blue-600 cursor-pointer bg-gray-100 focus:ring-transparent border-[2px] border-gray-500" />
+                <span htmlFor='checkbox5' className='flex gap-[8px]'>
+                  <IoMdStar className='text-[30px] text-[#FFB340]' />
+                  <IoMdStar className='text-[30px] text-[#FFB340]' />
+                  <IoMdStar className='text-[30px] text-[#FFB340]' />
+                  <IoMdStar className='text-[30px] text-[#FFB340]' />
+                  <IoMdStar className='text-[30px] text-[#FFB340]' />
+                </span>
+              </div>
             </div>
           </div>
         </div>
@@ -146,27 +160,27 @@ const Shop = () => {
               <li>
                 <a href="#" className="flex items-center justify-center px-4 h-10 gap-[14px] mr-[18px] leading-tight text-gray-500 bg-white border border-gray-300 rounded-md hover:bg-gray-100 hover:text-gray-700 dark:bg-gray-800 dark:border-gray-700 dark:text-gray-400 dark:hover:bg-gray-700 dark:hover:text-white">
                   <svg className="w-3 h-3 rtl:rotate-180" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 6 10">
-                    <path stroke="#0198E9" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 1 1 5l4 4" />
+                    <path stroke="#0198E9" strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M5 1 1 5l4 4" />
                   </svg>
                   <span className="text-[18px] font-[500] leading-normal Poppins text-[#0198E9]">Previous</span>
                 </a>
               </li>
-            <div className="rounded-md flex overflow-hidden border">
-            <li ref={focusedLiRef} className="flex items-center justify-center px-4 h-10 leading-tight focus:bg-blue-600 focus:text-white outline-none border-r border-gray-300 bg-white text-blue-500  hover:bg-gray-100 hover:text-gray-700 cursor-pointer" tabIndex="1" focused>
-                1
-              </li>
-              <li className="flex items-center justify-center px-4 h-10 leading-tight focus:bg-blue-600 focus:text-white border-r border-gray-300 bg-white text-blue-500 hover:bg-gray-100 hover:text-gray-700 cursor-pointer" tabIndex="0">
-                2
-              </li>
-              <li className="flex items-center justify-center px-4 h-10 leading-tight focus:bg-blue-600 focus:text-white  border-gray-300 bg-white text-blue-500 hover:bg-gray-100 hover:text-gray-700 cursor-pointer" tabIndex="0">
-                3
-              </li>
-            </div>
+              <div className="rounded-md flex overflow-hidden border">
+                <li ref={focusedLiRef} className="flex items-center justify-center px-4 h-10 leading-tight focus:bg-blue-600 focus:text-white outline-none border-r border-gray-300 bg-white text-blue-500  hover:bg-gray-100 hover:text-gray-700 cursor-pointer" tabIndex="1" focused>
+                  1
+                </li>
+                <li className="flex items-center justify-center px-4 h-10 leading-tight focus:bg-blue-600 focus:text-white border-r border-gray-300 bg-white text-blue-500 hover:bg-gray-100 hover:text-gray-700 cursor-pointer" tabIndex="0">
+                  2
+                </li>
+                <li className="flex items-center justify-center px-4 h-10 leading-tight focus:bg-blue-600 focus:text-white  border-gray-300 bg-white text-blue-500 hover:bg-gray-100 hover:text-gray-700 cursor-pointer" tabIndex="0">
+                  3
+                </li>
+              </div>
               <li>
                 <a href="#" className="flex items-center gap-[14px] ml-[18px] justify-center px-4 h-10 leading-tight text-gray-500 bg-white border border-gray-300 rounded-md hover:bg-gray-100 hover:text-gray-700 dark:bg-gray-800 dark:border-gray-700 dark:text-gray-400 dark:hover:bg-gray-700 dark:hover:text-white">
                   <span className="text-[18px] font-[500] leading-normal Poppins text-[#0198E9]">Next</span>
                   <svg className="w-3 h-3 rtl:rotate-180" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 6 10">
-                    <path stroke="#0198E9" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="m1 9 4-4-4-4" />
+                    <path stroke="#0198E9" strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="m1 9 4-4-4-4" />
                   </svg>
                 </a>
               </li>

@@ -8,6 +8,7 @@ import Menus from './menus';
 import { productProvider } from '../../../../ProductsContext/ProductsContext';
 import { Link, useNavigate } from 'react-router-dom';
 import { motion, useScroll, useMotionValueEvent } from "framer-motion"
+import { getStoredItem } from '../../../../CartContext/CartProvider';
 
 
 const Header = () => {
@@ -15,6 +16,10 @@ const Header = () => {
   const {scrollY} = useScroll()
   const {menus} = useContext(productProvider)
   const [hidden, setHidden] = useState(false)
+  const localItem = getStoredItem();
+  const arrFromObj = Object.keys(localItem);
+
+
   useMotionValueEvent(scrollY, "change", (latest)=>{
     const previous=  scrollY.getPrevious();
 
@@ -26,6 +31,12 @@ const Header = () => {
   })
 const handleCartPage = () =>{
   navigate('/cart')
+}
+const handleWishList = () =>{
+  navigate('/coming-soon')
+}
+const handleLogin = () =>{
+  navigate('/login')
 }
 
   return (
@@ -45,7 +56,7 @@ const handleCartPage = () =>{
           </Link>
         </div>
         <div className="w-[720px] hidden lg:flex h-[40px] justify-between rounded-md overflow-hidden">
-           <input type="text" className='w-[700px] px-4 py-3 focus-visible:none focus:outline-none bg-[#F6F6F6] border-[#F1F1F1] border' placeholder="i'm searching for..."/>
+           <input type="text" className='w-[700px] focus:border-transparent px-4 py-3 focus-visible:none focus:outline-none bg-[#F6F6F6] border-[#F1F1F1] border' placeholder="i'm searching for..."/>
            <button className='w-[10%] py-5 bg-blue-600 mr-auto flex justify-center items-center'>
            <IoSearchOutline  className='text-2xl text-white bg-transparent'/>
            </button>
@@ -53,11 +64,11 @@ const handleCartPage = () =>{
       
         <div className="">
           <div className="flex gap-[15px] lg:gap-[30px]">
-            <button className='flex items-center gap-1 text-[20px] lg:text-[16px] font-[400] text-[rgba(77, 77, 77, 1)]'><FaRegUser className='w-[30px] lg:w-[24px]'/><span className='hidden md:block'>Login</span></button>
-            <button className='flex items-center gap-1 text-[20px] lg:text-[16px] font-[400] text-[rgba(77, 77, 77, 1)]'> <FaRegHeart   className='w-[24px]'/> <span className='hidden md:block'>Wishlist</span></button>
+            <button onClick={handleLogin} className='flex items-center gap-1 text-[20px] lg:text-[16px] font-[400] text-[rgba(77, 77, 77, 1)]'><FaRegUser className='w-[30px] lg:w-[24px]'/><span className='hidden md:block'>Login</span></button>
+            <button onClick={handleWishList} className='flex items-center gap-1 text-[20px] lg:text-[16px] font-[400] text-[rgba(77, 77, 77, 1)]'> <FaRegHeart   className='w-[24px]'/> <span className='hidden md:block'>Wishlist</span></button>
            <div className="flex items-center gap-[15px]">
            <button onClick={handleCartPage} className='flex items-center gap-1 text-[20px] lg:text-[16px] font-[400] text-[rgba(77, 77, 77, 1)]'><BsHandbag   className='w-[24px]'/> <span className='hidden md:block'>MY Cart</span></button>
-            <span className='w-[23px] h-[23px] flex justify-center items-center text-[12px] rounded-full bg-red-500 text-white font-[500] right-[10px] top-[13px]  absolute lg:relative'>2</span>
+            <span className='w-[23px] lg:top-0 h-[23px] flex justify-center items-center text-[12px] rounded-full bg-red-500 text-white font-[500] right-[10px] top-[13px]  absolute lg:relative'>{arrFromObj.length}</span>
            </div>
             
           </div>

@@ -3,6 +3,7 @@ import './App.css'
 import Footer from './Components/Share/Footer/Footer'
 import Header from './Components/Share/Header/Header'
 import { useEffect } from 'react'
+import { Toaster } from 'react-hot-toast';
 
 function App() {
   const {pathname} = useLocation()
@@ -15,6 +16,7 @@ function App() {
       <Header></Header>
       <Outlet></Outlet>
       <Footer></Footer>
+      <Toaster />
     </>
   )
 }

@@ -24,7 +24,6 @@ const SingleProduct = () => {
   const { productImage, price, productName,category, rating, discount,description, SKU, features, sizes, stock, soldQuantity, reviews } = product;
   const [imgIdx, setImgIdx] = useState(0)
 
-  console.log(productImage);
   const [fave, setFave] = useState(false)
   const discountPrice = price +( price * discount / 100) ;
 
@@ -60,8 +59,8 @@ const SingleProduct = () => {
           <li className='text-[16px] font-[500] leading-normal  capitalize text-[#757575]'>{productName}</li>
         </ul>
 
-        <div className="grid grid-cols-2 pt-[25px] pb-[80px] gap-[100px]">
-          <div className="">
+        <div className="flex pt-[25px] pb-[80px] gap-[80px]">
+          <div className="lg:w-[50%]">
           <div className="flex gap-[24px]">
             <div className="w-[550px] h-[550px] border">
               <img className='w-full h-full object-cover' src={productImage[imgIdx]} alt="" />
@@ -82,15 +81,15 @@ const SingleProduct = () => {
           <div className="flex mt-[45px] gap-[12px] items-center">
             <span className='text-[20px] font-[500] leading-normal text-[#333333]'>Share</span>
             <ul className='flex gap-[14px] items-center'>
-              <li className='w-[44px] Poppins rounded-full h-[44px] cursor-pointer'><img className='w-full h-full' src={linkedin} alt="" /></li>
-              <li className='w-[44px] Poppins rounded-full h-[44px] cursor-pointer'><img className='w-full h-full' src={twitter} alt="" /></li>
-              <li className='w-[44px] Poppins rounded-full h-[44px] cursor-pointer'><img className='w-full h-full' src={facebook} alt="" /></li>
-              <li className='w-[44px] Poppins rounded-full h-[44px] cursor-pointer'><img className='w-full h-full' src={whatsApp} alt="" /></li>
-              <li className='w-[44px] Poppins rounded-full h-[44px] cursor-pointer'><img className='w-full h-full' src={shareLink} alt="" /></li>
+              <li className='w-[44px] Poppins rounded-full h-[44px] cursor-pointer'><img className='w-full h-full hover:scale-125 cursor-pointer transform translate duration-500' src={linkedin} alt="" /></li>
+              <li className='w-[44px] Poppins rounded-full h-[44px] cursor-pointer'><img className='w-full h-full hover:scale-125 cursor-pointer transform translate duration-500' src={twitter} alt="" /></li>
+              <li className='w-[44px] Poppins rounded-full h-[44px] cursor-pointer'><img className='w-full h-full hover:scale-125 cursor-pointer transform translate duration-500' src={facebook} alt="" /></li>
+              <li className='w-[44px] Poppins rounded-full h-[44px] cursor-pointer'><img className='w-full h-full hover:scale-125 cursor-pointer transform translate duration-500' src={whatsApp} alt="" /></li>
+              <li className='w-[44px] Poppins rounded-full h-[44px] cursor-pointer'><img className='w-full h-full hover:scale-125 cursor-pointer transform translate duration-500' src={shareLink} alt="" /></li>
             </ul>
           </div>
           </div>
-          <div className="">
+          <div>
             <h2 className='text-[26px] font-[500] leading-normal Poppins text-[#333333]'>{productName}</h2>
             <div className="flex pt-[18px]">
               <span className='flex items-center gap-2 pr-3 text-[18px] font-[500]'>{rating}
@@ -141,8 +140,8 @@ const SingleProduct = () => {
                   <span className='px-[15px] py-[10px] bg-white text-[16px] font-[600] leading-[202%] Poppins text-[#333333]'>{productQuantity}</span>
                   <button  onClick={handleProductIncrease}  className='px-[9px] text-[12px] text-[#ACACAC]'><FaPlus /></button>
                 </div>
-                <button className='py-[8px] px-[34px] bg-[#0198E9] text-[20px] font-[500] leading-normal Poppins text-white rounded-md'>Add to Cart</button>
-                <button className='py-[8px] px-[34px] border-[1.5px] border-blue-500 text-[20px] font-[500] leading-normal Poppins text-[#0198E9] rounded-md'>Buy Now</button>
+                <button className='py-[8px] px-[34px] bg-[#0198E9] text-[20px] font-[500] leading-normal Poppins text-white rounded-md hover:bg-white border hover:border-[#0198E9] transform translate duration-500 hover:text-[#0198E9]'>Add to Cart</button>
+                <button className='py-[8px] px-[34px] border-[1.5px] hover:bg-[#0198E9] hover:text-white border-blue-500 text-[20px] font-[500] leading-normal Poppins text-[#0198E9] transform translate duration-500 rounded-md'>Buy Now</button>
               </div>
             </div>
           </div>

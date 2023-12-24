@@ -25,5 +25,5 @@ Welcome to the E-commerce Website project, PROJECT NIRVOYA! This project is not 
   - Clicking on a product title on the shop page redirects users to the single product page with detailed information.
 
 ## Live Demo
-https://project-norvoy.netlify.app/cart
+https://project-norvoy.netlify.app
 
